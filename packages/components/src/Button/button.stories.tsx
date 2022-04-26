@@ -1,6 +1,8 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "./button";
+import {userEvent, within} from "@storybook/testing-library";
+import {expect} from "@storybook/jest";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -39,3 +41,9 @@ Small.args = {
   size: "small",
   label: "Button",
 };
+export const Test = Template.bind({});
+Test.play = async ({args,canvasElement}) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button'));
+  await expect(args.onClick).toHaveBeenCalled();
+}
