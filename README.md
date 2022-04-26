@@ -1,8 +1,6 @@
 # Codal-Fron2
-Codal Frontend
+### Codal Frontend
 
-
-# flutter_codal
 
 ### Branch Info
 - **master** : 주요 세팅 등 메인
